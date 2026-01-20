@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Refined Fleet Performance Analytics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#10B981",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#102219",
+                        "charcoal": "#1E293B",
+                        "muted-green": "#4c9a73",
+                        "border-light": "#e7f3ed",
+                        "chart-grey": "#F1F5F9",
+                        "emerald-green": "#10B981"
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-grid-line {
+            border-top: 1px solid #F1F5F9;
+        }
+        .dark .chart-grid-line {
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-charcoal dark:text-white min-h-screen">
+<header class="sticky top-0 z-50 w-full border-b border-border-light dark:border-white/10 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md">
+<div class="max-w-[1440px] mx-auto px-6 h-16 flex items-center justify-between">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3">
+<div class="bg-emerald-green p-1.5 rounded-lg">
+<span class="material-symbols-outlined text-white text-xl block">dashboard_customize</span>
+</div>
+<h1 class="text-charcoal dark:text-white text-lg font-bold tracking-tight">Fleet Dashboard</h1>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-charcoal/60 hover:text-charcoal dark:text-white/60 dark:hover:text-white text-sm font-medium transition-colors" href="index.html">Dashboard</a>
+<a class="text-charcoal/60 hover:text-charcoal dark:text-white/60 dark:hover:text-white text-sm font-medium transition-colors" href="#">Fleet Ledger</a>
+<a class="text-charcoal dark:text-white text-sm font-semibold border-b-2 border-emerald-green py-5" href="#">Analytics</a>
+<a class="text-charcoal/60 hover:text-charcoal dark:text-white/60 dark:hover:text-white text-sm font-medium transition-colors" href="fnpAnalytics.html">FNP Analytics</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-muted-green text-lg">search</span>
+<input class="pl-10 pr-4 py-2 bg-border-light dark:bg-white/5 border-none rounded-lg text-sm focus:ring-1 focus:ring-emerald-green w-64" placeholder="Search fleets..." type="text"/>
+</div>
+<button class="bg-charcoal text-white px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-lg">add_circle</span>
+<span>Invite New Fleet</span>
+</button>
+<div class="size-9 rounded-full bg-cover bg-center border border-border-light dark:border-white/10" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBCob13z5fWgKoqs9oIkNVjb6skoZyNvdRTg6fDF3b_neejivQc_0KSQLhT1dV1-L2ZI7cWAwlJiQDUWxn8FCud9C7nhOS5V_S91RVW4SUFGHw7QJy4uHZsK-dUZPICzyzomCLiSWBrOK3WMaZnZO-OGzsOnE5k07kk9mvi8SRCTbxbRl4cMYC2Yhp2O_GhMbcj3ksV0MG6J-qAqFOzb7LVueCxFpAHNxTELGVyDbLZt7MH1LuCygUmQZkpIU7q0oPPGUyPWmSu1DI')"></div>
+</div>
+</div>
+</header>
+<main class="max-w-[1440px] mx-auto px-6 py-8">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+<div class="max-w-2xl">
+<h2 class="text-charcoal dark:text-white text-4xl font-black tracking-tight mb-2">Refined Fleet Performance Analytics</h2>
+<p class="text-muted-green dark:text-muted-green/80 text-lg">High-end performance comparison across multiple carrier partnerships.</p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-4 py-2 bg-white dark:bg-white/5 border border-border-light dark:border-white/10 rounded-lg text-sm font-bold hover:bg-gray-50 dark:hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-lg">download</span>
+                Download Report
+            </button>
+</div>
+</div>
+<div class="grid grid-cols-12 gap-8">
+<div class="col-span-12 lg:col-span-9 flex flex-col gap-8">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-white dark:bg-white/5 border border-border-light dark:border-white/10 rounded-xl p-6 transition-all hover:shadow-sm">
+<p class="text-muted-green dark:text-muted-green/60 text-sm font-medium mb-1 uppercase tracking-wider">Most Profitable Fleet</p>
+<h3 class="text-charcoal dark:text-white text-2xl font-bold mb-2">Titan Logistics</h3>
+<div class="flex items-center gap-2 text-emerald-green font-bold text-sm">
+<span class="material-symbols-outlined text-base">trending_up</span>
+                        +12.4% vs last mo.
+                    </div>
+</div>
+<div class="bg-white dark:bg-white/5 border border-border-light dark:border-white/10 rounded-xl p-6 transition-all hover:shadow-sm">
+<p class="text-muted-green dark:text-muted-green/60 text-sm font-medium mb-1 uppercase tracking-wider">Avg. RPM Across Fleets</p>
+<h3 class="text-charcoal dark:text-white text-2xl font-bold mb-2">$2.84</h3>
+<div class="flex items-center gap-2 text-emerald-green font-bold text-sm">
+<span class="material-symbols-outlined text-base">north</span>
+                        +$0.12 gain
+                    </div>
+</div>
+<div class="bg-white dark:bg-white/5 border border-border-light dark:border-white/10 rounded-xl p-6 transition-all hover:shadow-sm">
+<p class="text-muted-green dark:text-muted-green/60 text-sm font-medium mb-1 uppercase tracking-wider">Total Partner Fleets</p>
+<h3 class="text-charcoal dark:text-white text-2xl font-bold mb-2">6</h3>
+<div class="flex items-center gap-2 text-muted-green font-bold text-sm">
+<span class="material-symbols-outlined text-base">check_circle</span>
+                        All Active
+                    </div>
+</div>
+</div>
+<div class="bg-white dark:bg-white/5 border border-border-light dark:border-white/10 rounded-xl p-8">
+<div class="flex items-center justify-between mb-10">
+<div class="flex items-center gap-4">
+<div>
+<h3 class="text-xl font-bold text-charcoal dark:text-white">Fleet Performance Comparison</h3>
+<p class="text-slate-500 text-sm">Revenue Per Mile (RPM) by partnership</p>
+</div>
+<div class="group relative flex items-center justify-center size-8 bg-slate-50 dark:bg-white/5 rounded-full hover:bg-slate-100 dark:hover:bg-white/10 transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-slate-400 text-lg">info</span>
+<div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 p-3 bg-charcoal text-white text-[10px] rounded shadow-xl opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity z-20 leading-relaxed">
+                                This chart displays the average RPM over the last 30 days. Highlighting indicates the top performer.
+                            </div>
+</div>
+</div>
+<div class="flex items-center gap-2 bg-slate-100 dark:bg-white/5 p-1 rounded-lg">
+<button class="px-4 py-1.5 bg-white dark:bg-white/10 shadow-sm rounded-md text-xs font-bold text-charcoal dark:text-white">RPM ($)</button>
+<button class="px-4 py-1.5 text-xs font-medium text-slate-500 hover:text-charcoal dark:hover:text-white">Total Pay</button>
+</div>
+</div>
+<div class="relative flex h-[400px] w-full mt-4">
+<div class="flex flex-col justify-between text-[11px] font-bold text-slate-400 pr-6 pb-12 uppercase tracking-widest h-full w-16 shrink-0">
+<span>$4.00</span>
+<span>$3.00</span>
+<span>$2.00</span>
+<span>$1.00</span>
+<span>$0.00</span>
+</div>
+<div class="flex-1 relative flex flex-col">
+<div class="absolute inset-0 flex flex-col justify-between pb-12 pointer-events-none z-0">
+<div class="w-full chart-grid-line h-0"></div>
+<div class="w-full chart-grid-line h-0"></div>
+<div class="w-full chart-grid-line h-0"></div>
+<div class="w-full chart-grid-line h-0"></div>
+<div class="w-full border-t border-slate-200 dark:border-white/20 h-0"></div>
+</div>
+<div class="flex-1 relative flex items-end justify-around pb-12 px-6 z-10">
+<div class="relative group flex flex-col items-center w-full max-w-[80px]">
+<div class="mb-2">
+<span class="font-black text-sm text-emerald-green">$3.12</span>
+</div>
+<div class="w-full bg-emerald-green rounded-t-sm transition-all duration-300 hover:brightness-110 cursor-pointer shadow-lg shadow-emerald-green/20" style="height: 78%;"></div>
+<div class="absolute -bottom-10 whitespace-nowrap">
+<span class="text-[11px] font-black text-charcoal dark:text-white uppercase tracking-wider">Titan</span>
+</div>
+</div>
+<div class="relative group flex flex-col items-center w-full max-w-[80px]">
+<div class="mb-2">
+<span class="font-bold text-sm text-charcoal dark:text-white">$2.95</span>
+</div>
+<div class="w-full bg-charcoal dark:bg-slate-700 rounded-t-sm transition-all duration-300 hover:bg-slate-700 dark:hover:bg-slate-600 cursor-pointer" style="height: 73.75%;"></div>
+<div class="absolute -bottom-10 whitespace-nowrap">
+<span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Swift</span>
+</div>
+</div>
+<div class="relative group flex flex-col items-center w-full max-w-[80px]">
+<div class="mb-2">
+<span class="font-bold text-sm text-charcoal dark:text-white">$2.85</span>
+</div>
+<div class="w-full bg-charcoal dark:bg-slate-700 rounded-t-sm transition-all duration-300 hover:bg-slate-700 dark:hover:bg-slate-600 cursor-pointer" style="height: 71.25%;"></div>
+<div class="absolute -bottom-10 whitespace-nowrap">
+<span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Uber</span>
+</div>
+</div>
+<div class="relative group flex flex-col items-center w-full max-w-[80px]">
+<div class="mb-2">
+<span class="font-bold text-sm text-charcoal dark:text-white">$2.72</span>
+</div>
+<div class="w-full bg-charcoal dark:bg-slate-700 rounded-t-sm transition-all duration-300 hover:bg-slate-700 dark:hover:bg-slate-600 cursor-pointer" style="height: 68%;"></div>
+<div class="absolute -bottom-10 whitespace-nowrap">
+<span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Knight</span>
+</div>
+</div>
+<div class="relative group flex flex-col items-center w-full max-w-[80px]">
+<div class="mb-2">
+<span class="font-bold text-sm text-charcoal dark:text-white">$2.45</span>
+</div>
+<div class="w-full bg-charcoal dark:bg-slate-700 rounded-t-sm transition-all duration-300 hover:bg-slate-700 dark:hover:bg-slate-600 cursor-pointer" style="height: 61.25%;"></div>
+<div class="absolute -bottom-10 whitespace-nowrap">
+<span class="text-[11px] font-bold text-slate-500 uppercase tracking-wider">JB Hunt</span>
+</div>
+</div>
+</div>
+<div class="absolute bottom-5 left-0 right-0 h-px bg-slate-200 dark:bg-white/20"></div>
+<div class="absolute -left-12 top-0 h-full w-px text-[9px] text-slate-400 rotate-[-90deg] translate-y-1/2 flex items-center whitespace-nowrap">RPM ($)</div>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-white/5 border border-border-light dark:border-white/10 rounded-xl overflow-hidden">
+<div class="p-6 border-b border-border-light dark:border-white/10 flex items-center justify-between">
+<h3 class="text-xl font-bold text-charcoal dark:text-white">Fleet Ledger Details</h3>
+<button class="text-muted-green text-sm font-semibold flex items-center gap-1 hover:text-charcoal transition-colors">
+                        View All History
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-background-light dark:bg-white/5 border-b border-border-light dark:border-white/10">
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-muted-green">Fleet Name</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-muted-green">Total Trips</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-muted-green text-right">Avg. Pay/Mile</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-muted-green text-right">Payment Speed</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-muted-green">Admin Hassle Score</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border-light dark:divide-white/10">
+<tr>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded bg-border-light dark:bg-white/10 flex items-center justify-center font-bold text-xs">TL</div>
+<span class="font-bold text-charcoal dark:text-white">Titan Logistics</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm font-medium">142</td>
+<td class="px-6 py-4 text-sm font-bold text-right text-emerald-green">$3.12</td>
+<td class="px-6 py-4 text-sm font-medium text-right">3 Days</td>
+<td class="px-6 py-4">
+<div class="flex gap-1">
+<div class="h-1.5 w-6 rounded-full bg-emerald-green"></div>
+<div class="h-1.5 w-6 rounded-full bg-emerald-green"></div>
+<div class="h-1.5 w-6 rounded-full bg-emerald-green"></div>
+<div class="h-1.5 w-6 rounded-full bg-emerald-green"></div>
+<div class="h-1.5 w-6 rounded-full bg-border-light dark:bg-white/10"></div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded bg-border-light dark:bg-white/10 flex items-center justify-center font-bold text-xs">ST</div>
+<span class="font-bold text-charcoal dark:text-white">Swift Transport</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm font-medium">98</td>
+<td class="px-6 py-4 text-sm font-bold text-right text-charcoal dark:text-white">$2.95</td>
+<td class="px-6 py-4 text-sm font-medium text-right">7 Days</td>
+<td class="px-6 py-4">
+<div class="flex gap-1">
+<div class="h-1.5 w-6 rounded-full bg-emerald-green"></div>
+<div class="h-1.5 w-6 rounded-full bg-emerald-green"></div>
+<div class="h-1.5 w-6 rounded-full bg-emerald-green"></div>
+<div class="h-1.5 w-6 rounded-full bg-border-light dark:bg-white/10"></div>
+<div class="h-1.5 w-6 rounded-full bg-border-light dark:bg-white/10"></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<aside class="col-span-12 lg:col-span-3 flex flex-col gap-6">
+<div class="bg-charcoal dark:bg-white/10 rounded-xl p-6 text-white overflow-hidden relative">
+<div class="absolute -right-10 -top-10 size-40 bg-emerald-green/10 rounded-full blur-3xl"></div>
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-emerald-green">stars</span>
+<span class="text-xs font-bold uppercase tracking-widest text-emerald-green">Top Performer Spotlight</span>
+</div>
+<div class="relative z-10">
+<h4 class="text-2xl font-black mb-1">Titan Logistics</h4>
+<p class="text-white/60 text-sm mb-6">Highest Net Profit Partner</p>
+<div class="space-y-4">
+<div class="flex justify-between items-end border-b border-white/10 pb-2">
+<span class="text-white/60 text-xs">Gross Revenue</span>
+<span class="font-bold text-sm">$442,840</span>
+</div>
+<div class="flex justify-between items-end border-b border-white/10 pb-2">
+<span class="text-white/60 text-xs">Dispatch Fees</span>
+<span class="font-bold text-sm text-red-400">-$22,142</span>
+</div>
+<div class="pt-2 flex justify-between items-center">
+<span class="text-emerald-green font-bold text-sm">Net Profit</span>
+<span class="text-2xl font-black text-emerald-green">$417,298</span>
+</div>
+</div>
+<button class="w-full mt-8 py-3 bg-emerald-green text-charcoal font-bold rounded-lg text-sm hover:opacity-90 transition-opacity">
+                        View Full Breakdown
+                    </button>
+</div>
+</div>
+<div class="bg-white dark:bg-white/5 border border-border-light dark:border-white/10 rounded-xl p-6">
+<h4 class="text-sm font-bold text-charcoal dark:text-white mb-4">Optimization Insights</h4>
+<div class="space-y-4">
+<div class="flex gap-3">
+<span class="material-symbols-outlined text-emerald-green text-xl">lightbulb</span>
+<p class="text-xs leading-relaxed text-muted-green">Switching 20% more loads to <strong class="text-charcoal dark:text-white">Titan</strong> could increase monthly net by $4,200.</p>
+</div>
+</div>
+</div>
+<div class="bg-slate-100 dark:bg-white/5 rounded-xl p-6">
+<h4 class="text-sm font-bold text-charcoal dark:text-white mb-4">Quick Actions</h4>
+<div class="grid gap-2">
+<button class="flex items-center justify-between p-3 bg-white dark:bg-white/10 rounded-lg text-xs font-bold hover:bg-charcoal hover:text-white transition-all">
+                        Add Load Record
+                        <span class="material-symbols-outlined text-sm">add</span>
+</button>
+<button class="flex items-center justify-between p-3 bg-white dark:bg-white/10 rounded-lg text-xs font-bold hover:bg-charcoal hover:text-white transition-all">
+                        Sync ELD Data
+                        <span class="material-symbols-outlined text-sm">sync</span>
+</button>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<footer class="max-w-[1440px] mx-auto px-6 py-12 border-t border-border-light dark:border-white/10 text-center">
+<p class="text-muted-green text-xs font-medium">© 2024 Owner-Operator Analytics Engine. All rights reserved.</p>
+</footer>
+
+</body></html>

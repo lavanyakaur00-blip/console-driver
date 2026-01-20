@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Factoring Success Confirmation - FleetProfit</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script
+        id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { primary: "#359EFF", "background-light": "#f5f7f8", "background-dark": "#0f1923", "indigo-pulse": "#4f46e5" }, fontFamily: { display: "Inter" }, borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" } } } };</script>
+    <style>
+        .indigo-pulse-effect {
+            box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.4);
+            animation: pulse-indigo 2s infinite;
+        }
+
+        @keyframes pulse-indigo {
+            0% {
+                box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.4);
+            }
+
+            70% {
+                box-shadow: 0 0 0 15px rgba(79, 70, 229, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(79, 70, 229, 0);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-[#111815] transition-colors duration-300">
+    <div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+        <div class="layout-container flex h-full grow flex-col">
+            <!-- Header Section -->
+            <header
+                class="flex items-center justify-between border-b border-solid border-[#f0f4f3] dark:border-[#1e3229] px-10 py-4 bg-white dark:bg-background-dark">
+                <div class="flex items-center gap-4 text-[#111815] dark:text-white">
+                    <div class="size-6 text-primary">
+                        <svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M44 4H30.6666V17.3334H17.3334V30.6666H4V44H44V4Z" fill="currentColor"></path>
+                        </svg>
+                    </div>
+                    <h2 class="text-lg font-bold leading-tight tracking-tight">FleetProfit</h2>
+                </div>
+                <div class="flex flex-1 justify-end gap-6 items-center">
+                    <div class="flex gap-2">
+                        <button
+                            class="flex items-center justify-center rounded-lg h-10 w-10 bg-[#f0f4f3] dark:bg-[#1e3229] text-[#111815] dark:text-white transition-colors hover:bg-primary/20">
+                            <span class="material-symbols-outlined">notifications</span>
+                        </button>
+                        <button
+                            class="flex items-center justify-center rounded-lg h-10 w-10 bg-[#f0f4f3] dark:bg-[#1e3229] text-[#111815] dark:text-white transition-colors hover:bg-primary/20">
+                            <span class="material-symbols-outlined">settings</span>
+                        </button>
+                    </div>
+                    <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 ring-2 ring-primary/30"
+                        data-alt="Professional profile picture of the fleet owner"
+                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAMOskSiGiE89nF3E3aL1Fot9wVEYk7B-GROSN1IEla9bg7LverOubbc317OOdxs9vaD8vAFKmizcjrFJXhcrrqaT27gK86ZM0u2IHYrTwpRSzAeMbbV4DUv2AZ_rSJu2SApYuDhl2zcmgR_Z90dJk0OXcKoAXk-SIxuZcVSoQa1va4A8VJ3vzxEXABGh9F68yDmh0kcPoGyjdu6zur8Pb7IdWrY--l99Tg0wbTFx71Fp854ZqK_lnv8vFzFpeityKRytZAmoIwSy8");'>
+                    </div>
+                </div>
+            </header>
+            <main class="flex flex-1 justify-center py-12 px-6">
+                <div class="layout-content-container flex flex-col max-w-[640px] flex-1 items-center">
+                    <!-- Success Visual Centerpiece -->
+                    <div class="mb-8 flex flex-col items-center">
+                        <div
+                            class="relative flex items-center justify-center size-24 bg-primary rounded-full indigo-pulse-effect text-white mb-6">
+                            <span class="material-symbols-outlined !text-5xl">check_circle</span>
+                        </div>
+                        <h1
+                            class="text-[#111815] dark:text-white tracking-tight text-4xl font-extrabold leading-tight text-center">
+                            Funds Successfully Released
+                        </h1>
+                        <p class="text-[#618979] dark:text-[#a0c4b4] text-lg font-medium mt-2">Immediate payout
+                            completed</p>
+                    </div>
+                    <!-- Transaction Summary Card -->
+                    <div
+                        class="w-full bg-white dark:bg-[#1a2e25] rounded-xl shadow-xl border border-[#f0f4f3] dark:border-[#2a4539] p-8 mb-10">
+                        <div class="flex flex-col gap-6">
+                            <!-- Main Amount -->
+                            <div
+                                class="flex flex-col items-center border-b border-[#f0f4f3] dark:border-[#2a4539] pb-6">
+                                <p
+                                    class="text-[#618979] dark:text-[#a0c4b4] text-sm font-semibold uppercase tracking-widest mb-1">
+                                    Total Amount Funded</p>
+                                <p class="text-4xl font-black text-[#111815] dark:text-white">$2,100.00</p>
+                            </div>
+                            <!-- Details -->
+                            <div class="grid grid-cols-1 gap-4">
+                                <div class="flex justify-between items-center px-2">
+                                    <div class="flex items-center gap-3">
+                                        <span class="material-symbols-outlined text-[#618979]">account_balance</span>
+                                        <p class="text-[#618979] dark:text-[#a0c4b4] text-base">Recipient</p>
+                                    </div>
+                                    <p class="text-[#111815] dark:text-white font-semibold">Business Checking (****4201)
+                                    </p>
+                                </div>
+                                <div class="flex justify-between items-center px-2">
+                                    <div class="flex items-center gap-3">
+                                        <span class="material-symbols-outlined text-[#618979]">schedule</span>
+                                        <p class="text-[#618979] dark:text-[#a0c4b4] text-base">Processing Time</p>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <span
+                                            class="bg-primary/20 text-[#0d9b62] dark:text-primary px-2 py-0.5 rounded text-xs font-bold">FAST</span>
+                                        <p class="text-[#111815] dark:text-white font-semibold">42 Minutes</p>
+                                    </div>
+                                </div>
+                                <div class="flex justify-between items-center px-2">
+                                    <div class="flex items-center gap-3">
+                                        <span class="material-symbols-outlined text-[#618979]">receipt_long</span>
+                                        <p class="text-[#618979] dark:text-[#a0c4b4] text-base">Transaction ID</p>
+                                    </div>
+                                    <p class="text-[#111815] dark:text-white font-mono text-sm">FP-8892-XTZ</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Secondary Actions -->
+                    <div class="flex flex-col w-full gap-4 sm:flex-row justify-center mb-12">
+                        <button
+                            class="flex-1 min-w-[200px] cursor-pointer items-center justify-center rounded-lg h-14 bg-primary text-[#111815] text-base font-bold transition-all hover:scale-[1.02] active:scale-95 shadow-lg shadow-primary/20">
+                            View Wallet Balance
+                        </button>
+                        <a href="index.html">
+                            <button
+                                class="flex-1 min-w-[200px] cursor-pointer items-center justify-center rounded-lg h-14 bg-white dark:bg-[#1a2e25] text-[#111815] dark:text-white border-2 border-[#f0f4f3] dark:border-[#2a4539] text-base font-bold transition-all hover:bg-[#f0f4f3] dark:hover:bg-[#2a4539]">
+                                Back to Dashboard
+                            </button>
+                        </a>
+                    </div>
+                    <!-- Motivational Element -->
+                    <div
+                        class="flex items-center gap-3 bg-primary/10 dark:bg-primary/5 px-6 py-3 rounded-full border border-primary/20">
+                        <span class="material-symbols-outlined text-primary scale-90">local_shipping</span>
+                        <p class="text-[#111815] dark:text-[#a0c4b4] text-sm font-medium">
+                            You are now ready for your next mission.
+                        </p>
+                    </div>
+                </div>
+            </main>
+            <!-- Footer Meta -->
+            <footer class="py-8 px-10 text-center">
+                <p class="text-[#618979] dark:text-[#507063] text-xs">
+                    © 2023 FleetProfit Logistics FinTech. All rights reserved. Member FDIC.
+                </p>
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>

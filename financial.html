@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Financial History &amp; Tax Archive | FleetProfit</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "brand-bg": "#F8FAFC",
+                        "brand-text": "#1E293B",
+                        "brand-emerald": "#10B981",
+                        "brand-amber": "#F59E0B",
+                        "brand-border": "#E2E8F0",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        body { font-family: 'Inter', sans-serif; background-color: #F8FAFC; color: #1E293B; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .kpi-card { @apply bg-white border border-brand-border rounded-xl p-6 shadow-sm; }
+        .sidebar-card { @apply bg-white border border-brand-border rounded-xl p-6 shadow-sm; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col font-display">
+<header class="border-b border-brand-border bg-white px-6 py-3 sticky top-0 z-50">
+<div class="max-w-[1440px] mx-auto flex items-center justify-between">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3 text-brand-text">
+<div class="size-8 bg-slate-100 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-brand-text">account_balance_wallet</span>
+</div>
+<h2 class="text-brand-text text-xl font-bold leading-tight tracking-tight">FleetProfit</h2>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-slate-500 hover:text-brand-text transition-colors text-sm font-medium" href="index.html">Dashboard</a>
+<a class="text-slate-500 hover:text-brand-text transition-colors text-sm font-medium" href="load.html">Loads</a>
+<a class="text-slate-500 hover:text-brand-text transition-colors text-sm font-medium" href="#">Fleet</a>
+<a class="text-brand-text text-sm font-bold border-b-2 border-brand-text pb-1" href="financial.html">Financials</a>
+<a class="text-slate-500 hover:text-brand-text transition-colors text-sm font-medium" href="#">Tax Archive</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+<input class="bg-slate-100 border-none rounded-lg pl-10 pr-4 py-2 text-sm w-64 focus:ring-1 focus:ring-slate-300" placeholder="Search transactions..."/>
+</div>
+<button class="p-2 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="h-10 w-10 rounded-full border border-brand-border bg-cover bg-center shadow-sm" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCvEsT2OS6-Uu2yWCmnueBrMBvgPtTGjzVh_xBfCvIB-f9uDBAXdtT5hEjcmqLR1dEqIAbhbcjzI_LztPRaXnl4evJ1zxfU0AEJeq-IAUUxmoGOWCXx4x_Vzob8SaoU-rscHMBeUXqSc_3cvDIEWfvJpuhIzNoaX4DzMB4CA_FRdL-2_YsATeBE62GfF8cqAHMXjMugOaTA_7N9GJwbJ00O0FlXFwp2ZYtpbrcEAlgnl_UxiIDNDaSrJDjB-89T9PE6p5EZ-3XAJac");'></div>
+</div>
+</div>
+</header>
+<main class="flex-grow max-w-[1440px] mx-auto w-full px-6 py-8">
+<div class="flex flex-col gap-8">
+<div class="flex justify-between items-end">
+<div>
+<h1 class="text-3xl font-bold text-brand-text mb-2 tracking-tight">Financial History &amp; Tax Archive</h1>
+<p class="text-slate-500">Analyze historical earnings and manage your tax readiness for 2023.</p>
+</div>
+<div class="flex gap-3">
+<div class="flex items-center bg-white rounded-lg px-4 py-2 border border-brand-border shadow-sm">
+<span class="material-symbols-outlined text-slate-400 mr-2 text-sm">calendar_today</span>
+<span class="text-sm font-medium text-brand-text">Jan 1, 2023 - Dec 31, 2023</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="kpi-card">
+<div class="flex justify-between items-start mb-4">
+<span class="text-slate-500 text-sm font-medium uppercase tracking-wider">Gross Earnings YTD</span>
+<div class="p-2 bg-slate-50 rounded-lg text-slate-400">
+<span class="material-symbols-outlined">trending_up</span>
+</div>
+</div>
+<div class="flex items-baseline gap-2">
+<h2 class="text-3xl font-bold text-brand-text">$142,500</h2>
+<span class="text-brand-emerald text-sm font-bold">+12% vs LY</span>
+</div>
+</div>
+<div class="kpi-card">
+<div class="flex justify-between items-start mb-4">
+<span class="text-slate-500 text-sm font-medium uppercase tracking-wider">Total Factoring Fees</span>
+<div class="p-2 bg-slate-50 rounded-lg text-slate-400">
+<span class="material-symbols-outlined">percent</span>
+</div>
+</div>
+<div class="flex items-baseline gap-2">
+<h2 class="text-3xl font-bold text-brand-text">$4,275</h2>
+<span class="text-brand-amber text-sm font-bold">3.0% Avg Rate</span>
+</div>
+</div>
+<div class="kpi-card ring-1 ring-brand-emerald/10">
+<div class="flex justify-between items-start mb-4">
+<span class="text-slate-500 text-sm font-medium uppercase tracking-wider">Net Business Income</span>
+<div class="p-2 bg-brand-emerald/5 rounded-lg text-brand-emerald">
+<span class="material-symbols-outlined">account_balance</span>
+</div>
+</div>
+<div class="flex items-baseline gap-2">
+<h2 class="text-3xl font-bold text-brand-emerald">$138,225</h2>
+<span class="text-slate-400 text-sm font-medium">97% Retention</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<div class="lg:col-span-8 flex flex-col gap-4">
+<div class="flex items-center justify-between px-2">
+<h3 class="text-xl font-bold text-brand-text">Transaction Ledger</h3>
+<div class="flex gap-2">
+<button class="text-sm font-medium flex items-center gap-1 text-slate-500 hover:text-brand-text transition-colors">
+<span class="material-symbols-outlined text-lg">filter_list</span> Filter
+                        </button>
+</div>
+</div>
+<div class="bg-white rounded-xl border border-brand-border overflow-hidden shadow-sm">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-50 border-b border-brand-border">
+<th class="px-6 py-4 text-[11px] font-bold uppercase tracking-wider text-slate-500">Date</th>
+<th class="px-6 py-4 text-[11px] font-bold uppercase tracking-wider text-slate-500">Trip ID</th>
+<th class="px-6 py-4 text-[11px] font-bold uppercase tracking-wider text-slate-500">Fleet Entity</th>
+<th class="px-6 py-4 text-[11px] font-bold uppercase tracking-wider text-slate-500">Gross</th>
+<th class="px-6 py-4 text-[11px] font-bold uppercase tracking-wider text-slate-500">Fee (3%)</th>
+<th class="px-6 py-4 text-[11px] font-bold uppercase tracking-wider text-brand-emerald">Net Paid</th>
+<th class="px-6 py-4 text-[11px] font-bold uppercase tracking-wider text-slate-500 text-center">BOL</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100">
+<tr class="hover:bg-slate-50 transition-colors group">
+<td class="px-6 py-4 text-sm text-slate-600">Oct 24, 2023</td>
+<td class="px-6 py-4 text-sm font-bold text-brand-text">#TRK-8829</td>
+<td class="px-6 py-4 text-sm text-slate-600">Swift Logistics</td>
+<td class="px-6 py-4 text-sm text-slate-600">$4,500.00</td>
+<td class="px-6 py-4 text-sm text-brand-amber">-$135.00</td>
+<td class="px-6 py-4 text-sm font-bold text-brand-emerald">$4,365.00</td>
+<td class="px-6 py-4 text-center">
+<button class="p-1 text-slate-400 hover:text-brand-text transition-colors">
+<span class="material-symbols-outlined text-xl">download</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 transition-colors group">
+<td class="px-6 py-4 text-sm text-slate-600">Oct 22, 2023</td>
+<td class="px-6 py-4 text-sm font-bold text-brand-text">#TRK-8821</td>
+<td class="px-6 py-4 text-sm text-slate-600">Schneider National</td>
+<td class="px-6 py-4 text-sm text-slate-600">$3,200.00</td>
+<td class="px-6 py-4 text-sm text-brand-amber">-$96.00</td>
+<td class="px-6 py-4 text-sm font-bold text-brand-emerald">$3,104.00</td>
+<td class="px-6 py-4 text-center">
+<button class="p-1 text-slate-400 hover:text-brand-text transition-colors">
+<span class="material-symbols-outlined text-xl">download</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 transition-colors group">
+<td class="px-6 py-4 text-sm text-slate-600">Oct 20, 2023</td>
+<td class="px-6 py-4 text-sm font-bold text-brand-text">#TRK-8815</td>
+<td class="px-6 py-4 text-sm text-slate-600">JB Hunt</td>
+<td class="px-6 py-4 text-sm text-slate-600">$5,100.00</td>
+<td class="px-6 py-4 text-sm text-brand-amber">-$153.00</td>
+<td class="px-6 py-4 text-sm font-bold text-brand-emerald">$4,947.00</td>
+<td class="px-6 py-4 text-center">
+<button class="p-1 text-slate-400 hover:text-brand-text transition-colors">
+<span class="material-symbols-outlined text-xl">download</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 transition-colors group">
+<td class="px-6 py-4 text-sm text-slate-600">Oct 18, 2023</td>
+<td class="px-6 py-4 text-sm font-bold text-brand-text">#TRK-8802</td>
+<td class="px-6 py-4 text-sm text-slate-600">Swift Logistics</td>
+<td class="px-6 py-4 text-sm text-slate-600">$2,850.00</td>
+<td class="px-6 py-4 text-sm text-brand-amber">-$85.50</td>
+<td class="px-6 py-4 text-sm font-bold text-brand-emerald">$2,764.50</td>
+<td class="px-6 py-4 text-center">
+<button class="p-1 text-slate-400 hover:text-brand-text transition-colors">
+<span class="material-symbols-outlined text-xl">download</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 transition-colors group">
+<td class="px-6 py-4 text-sm text-slate-600">Oct 15, 2023</td>
+<td class="px-6 py-4 text-sm font-bold text-brand-text">#TRK-8798</td>
+<td class="px-6 py-4 text-sm text-slate-600">Knight-Swift</td>
+<td class="px-6 py-4 text-sm text-slate-600">$4,100.00</td>
+<td class="px-6 py-4 text-sm text-brand-amber">-$123.00</td>
+<td class="px-6 py-4 text-sm font-bold text-brand-emerald">$3,977.00</td>
+<td class="px-6 py-4 text-center">
+<button class="p-1 text-slate-400 hover:text-brand-text transition-colors">
+<span class="material-symbols-outlined text-xl">download</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="px-6 py-4 bg-slate-50 flex items-center justify-between border-t border-brand-border">
+<span class="text-xs text-slate-500">Showing 5 of 142 transactions</span>
+<div class="flex gap-2">
+<button class="px-3 py-1 bg-white border border-brand-border rounded text-xs font-medium text-brand-text hover:bg-slate-50">Previous</button>
+<button class="px-3 py-1 bg-white border border-brand-border rounded text-xs font-medium text-brand-text hover:bg-slate-50">Next</button>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-4 flex flex-col gap-6">
+<div class="sidebar-card">
+<h3 class="text-lg font-bold text-brand-text mb-6">Fee Efficiency</h3>
+<div class="flex flex-col items-center">
+<div class="relative w-48 h-24 overflow-hidden mb-4">
+<div class="absolute inset-0 border-[8px] border-slate-100 rounded-t-full"></div>
+<div class="absolute inset-0 border-[8px] border-brand-emerald rounded-t-full rotate-[145deg] origin-bottom transition-transform duration-1000"></div>
+<div class="absolute bottom-0 left-1/2 -translate-x-1/2 text-center">
+<span class="text-2xl font-bold text-brand-text">3.0%</span>
+</div>
+</div>
+<div class="text-center">
+<p class="text-sm font-bold text-brand-emerald mb-1">Excellent Rate</p>
+<p class="text-xs text-slate-500">Market Avg: 3.5% - 4.2%</p>
+</div>
+</div>
+<div class="mt-6 p-4 bg-slate-50 rounded-lg border border-brand-border">
+<p class="text-xs text-slate-600 leading-relaxed">
+<span class="font-bold text-brand-text">Pro Tip:</span> Your factoring efficiency is in the top 5% for your fleet size. You've saved <span class="font-bold text-brand-emerald">$712</span> this quarter compared to market average.
+                        </p>
+</div>
+</div>
+<div class="sidebar-card">
+<h3 class="text-lg font-bold text-brand-text mb-4">Q4 Tax Readiness</h3>
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-3">
+<div class="size-6 rounded-full bg-brand-emerald/10 text-brand-emerald flex items-center justify-center">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+<div class="flex-grow">
+<p class="text-sm font-medium text-brand-text">Q3 BOLs Uploaded</p>
+<div class="w-full bg-slate-100 h-1 rounded-full mt-1.5">
+<div class="bg-brand-emerald h-full w-[100%] rounded-full"></div>
+</div>
+</div>
+<span class="text-[10px] font-bold text-slate-500 uppercase">12/12</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="size-6 rounded-full bg-brand-amber/10 text-brand-amber flex items-center justify-center">
+<span class="material-symbols-outlined text-sm font-bold">priority_high</span>
+</div>
+<div class="flex-grow">
+<p class="text-sm font-medium text-brand-text">Fuel Receipts Synced</p>
+<div class="w-full bg-slate-100 h-1 rounded-full mt-1.5">
+<div class="bg-brand-amber h-full w-[85%] rounded-full"></div>
+</div>
+</div>
+<span class="text-[10px] font-bold text-slate-500 uppercase">85%</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="size-6 rounded-full bg-brand-emerald/10 text-brand-emerald flex items-center justify-center">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+<div class="flex-grow">
+<p class="text-sm font-medium text-brand-text">Maintenance Logs</p>
+<div class="w-full bg-slate-100 h-1 rounded-full mt-1.5">
+<div class="bg-brand-emerald h-full w-[100%] rounded-full"></div>
+</div>
+</div>
+<span class="text-[10px] font-bold text-slate-500 uppercase">DONE</span>
+</div>
+<div class="flex items-center gap-3 opacity-50">
+<div class="size-6 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center">
+<span class="material-symbols-outlined text-sm font-bold">more_horiz</span>
+</div>
+<div class="flex-grow">
+<p class="text-sm font-medium text-brand-text">Estimated Tax Payment</p>
+<div class="w-full bg-slate-100 h-1 rounded-full mt-1.5">
+<div class="bg-slate-300 h-full w-[0%] rounded-full"></div>
+</div>
+</div>
+<span class="text-[10px] font-bold text-slate-400 uppercase">JAN 15</span>
+</div>
+</div>
+<button class="w-full mt-6 py-2.5 rounded-lg border border-brand-border text-sm font-bold text-brand-text hover:bg-slate-50 transition-colors">
+                        Manage Documents
+                    </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="bg-white border-t border-brand-border py-4 px-6 sticky bottom-0 z-50 shadow-[0_-4px_12px_rgba(0,0,0,0.05)]">
+<div class="max-w-[1440px] mx-auto flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="flex flex-col">
+<span class="text-[10px] uppercase font-bold text-slate-400 tracking-widest">Archive Status</span>
+<span class="text-xs font-medium text-slate-600">Last synced: Today at 09:42 AM</span>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="px-5 py-2.5 rounded-lg bg-slate-100 text-brand-text text-sm font-semibold hover:bg-slate-200 transition-all flex items-center gap-2 border border-brand-border">
+<span class="material-symbols-outlined text-lg">csv</span>
+                Export CSV
+            </button>
+<button class="px-8 py-2.5 rounded-lg bg-brand-text text-white text-sm font-bold hover:bg-slate-800 transition-all flex items-center gap-2 shadow-sm border border-brand-text">
+<span class="material-symbols-outlined text-lg text-brand-emerald">picture_as_pdf</span>
+                Generate Tax Report (PDF)
+            </button>
+</div>
+</div>
+</footer>
+
+</body></html>
