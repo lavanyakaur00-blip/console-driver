@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -396,5 +396,352 @@
 <button class="fixed bottom-6 right-6 w-12 h-12 bg-charcoal-900 dark:bg-white text-white dark:text-charcoal-900 rounded-full shadow-lg flex items-center justify-center transition-transform hover:scale-110 active:scale-95 z-[100]" onclick="document.documentElement.classList.toggle('dark')">
 <span class="material-symbols-outlined">dark_mode</span>
 </button>
+
+</body></html> -->
+
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Driver Home Dashboard - Light Mode</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#007BFF",
+                        "success": "#28A745",
+                        "warning": "#FFC107",
+                        "danger": "#DC3545",
+                        "charcoal": "#212529",
+                        "background": "#F8F9FA",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                    boxShadow: {
+                        "card": "0 2px 4px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.06)",
+                    }
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        .hos-ring {
+            transition: stroke-dashoffset 0.35s;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+        body {
+            @apply bg-background text-charcoal;
+        }
+    </style>
+</head>
+<body class="font-display min-h-screen">
+<div class="flex h-screen overflow-hidden">
+<aside class="w-64 flex-shrink-0 bg-white border-r border-slate-200 flex flex-col justify-between p-4 shadow-sm z-20">
+<div class="flex flex-col gap-6">
+<div class="flex gap-3 items-center px-2 py-4 border-b border-slate-50">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 ring-2 ring-primary/20" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCDcetbHK1gWwEqrwYG7R-zTe59trQ78rFFE5ZFTf5Gbsocs69GWCbp5rVCfhSPFrD-GI-S-vuUxHAyn8LGsJTD1RWRxHm6t31JHTunjdY8qZ-hm_qSXoZDIC5VEZJazctRQAVYF7UZVDvfHilGGI56sXkQ1jIW8rmLMDmcl3V8Uq9j4a-wA4SO0KvrJZVTIKZLtEnHHNJJBOiww_NsgGZkET-ZsZNss4azfFYfcgqrWRWIqFjskWpU-WmtxhW_5gEd_mf1ktoFNXc");'></div>
+<div class="flex flex-col">
+<h1 class="text-sm font-bold leading-tight text-charcoal">Marcus Thompson</h1>
+<p class="text-slate-500 text-xs">Unit #8829 | ELD-V4</p>
+</div>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary text-white shadow-md shadow-primary/20" href="#">
+<span class="material-symbols-outlined text-[20px] fill-1">home</span>
+<p class="text-sm font-bold">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50 transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">history_edu</span>
+<p class="text-sm font-semibold">Logs (HOS)</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50 transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">local_shipping</span>
+<p class="text-sm font-semibold">Active Trips</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50 transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">account_balance_wallet</span>
+<p class="text-sm font-semibold">Earnings</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50 transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">description</span>
+<p class="text-sm font-semibold">Documents</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50 transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<p class="text-sm font-semibold">Settings</p>
+</a>
+</nav>
+</div>
+<div class="flex flex-col gap-3">
+<div class="p-3 bg-slate-50 border border-slate-100 rounded-lg">
+<p class="text-[10px] uppercase font-bold text-slate-400 mb-1">Last Sync</p>
+<p class="text-xs font-mono font-bold text-charcoal">Today, 10:42 AM</p>
+</div>
+<button class="w-full flex cursor-pointer items-center justify-center rounded-lg h-10 px-4 bg-danger hover:bg-red-700 text-white text-sm font-bold transition-colors shadow-sm">
+<span>Go Off Duty</span>
+</button>
+</div>
+</aside>
+<main class="flex-1 flex flex-col overflow-y-auto">
+<header class="flex items-center justify-between bg-white border-b border-slate-200 px-8 py-3 sticky top-0 z-10">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-2">
+<div class="size-6 text-primary">
+<svg fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M24 4H42V17.3333V30.6667H24V44H6V30.6667V17.3333H24V4Z" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-lg font-black tracking-tight uppercase text-charcoal">Telematics<span class="text-primary">Pro</span></h2>
+</div>
+<div class="flex gap-2">
+<div class="flex items-center gap-2 px-3 py-1 rounded-full bg-success/10 border border-success/20 text-success">
+<span class="size-2 rounded-full bg-success"></span>
+<span class="text-xs font-bold uppercase">Driving</span>
+</div>
+<div class="flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-500">
+<span class="text-xs font-bold uppercase">On Duty</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+<input class="bg-slate-50 border border-slate-200 rounded-lg pl-10 pr-4 py-2 text-sm w-64 focus:ring-2 focus:ring-primary focus:border-primary placeholder:text-slate-400" placeholder="Search load ID..." type="text"/>
+</div>
+<button class="relative p-2 rounded-lg bg-slate-50 border border-slate-200 text-slate-600 hover:bg-slate-100 transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-1.5 right-1.5 size-2 bg-danger rounded-full border-2 border-white"></span>
+</button>
+<button class="p-2 rounded-lg bg-slate-50 border border-slate-200 text-slate-600 hover:bg-slate-100 transition-colors">
+<span class="material-symbols-outlined">help</span>
+</button>
+</div>
+</header>
+<div class="p-8 max-w-[1400px] mx-auto w-full grid grid-cols-12 gap-6">
+<div class="col-span-12 xl:col-span-4 flex flex-col gap-6">
+<div class="bg-white p-8 rounded-xl border border-slate-100 shadow-card flex flex-col items-center justify-center relative overflow-hidden">
+<div class="absolute top-4 left-4">
+<h3 class="text-[10px] font-extrabold uppercase tracking-widest text-slate-400">11hr Driving Clock</h3>
+</div>
+<div class="relative size-64 flex items-center justify-center my-4">
+<svg class="size-full" viewBox="0 0 100 100">
+<circle class="text-slate-100" cx="50" cy="50" fill="transparent" r="42" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-primary hos-ring" cx="50" cy="50" fill="transparent" r="42" stroke="currentColor" stroke-dasharray="263.89" stroke-dashoffset="65.97" stroke-linecap="round" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-5xl font-black tracking-tight text-charcoal">08:42</span>
+<span class="text-slate-500 text-sm font-semibold mt-1">Remaining</span>
+</div>
+</div>
+<div class="grid grid-cols-2 w-full gap-4 mt-4">
+<div class="flex flex-col items-center p-3 bg-slate-50 rounded-lg border border-slate-100">
+<span class="text-[10px] font-bold text-slate-400 uppercase">14hr Shift</span>
+<span class="text-xl font-black text-charcoal">10:15</span>
+</div>
+<div class="flex flex-col items-center p-3 bg-slate-50 rounded-lg border border-slate-100">
+<span class="text-[10px] font-bold text-slate-400 uppercase">70hr Week</span>
+<span class="text-xl font-black text-charcoal">52:30</span>
+</div>
+</div>
+<div class="w-full mt-6 flex flex-col gap-2">
+<div class="flex justify-between text-[11px] font-black px-1">
+<span class="text-slate-500 uppercase tracking-tight">Break Required in:</span>
+<span class="text-warning">00:25</span>
+</div>
+<div class="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
+<div class="bg-warning h-full w-[85%]"></div>
+</div>
+</div>
+</div>
+<div class="bg-white p-6 rounded-xl border border-slate-100 shadow-card">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-[10px] font-extrabold uppercase tracking-widest text-slate-400">Earnings Summary</h3>
+<button class="text-primary text-xs font-bold hover:underline">View All</button>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-4 bg-success/5 border border-success/10 rounded-lg">
+<div class="flex items-center gap-3">
+<div class="size-10 flex items-center justify-center bg-success text-white rounded-lg shadow-sm">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<div>
+<p class="text-[10px] font-bold text-slate-400 uppercase leading-none mb-1">Today</p>
+<p class="text-2xl font-black text-charcoal">$350.00</p>
+</div>
+</div>
+<div class="text-success text-sm font-bold flex items-center gap-1 bg-white px-2 py-1 rounded shadow-sm">
+<span class="material-symbols-outlined text-sm">trending_up</span> 12%
+                                </div>
+</div>
+<div class="flex items-center justify-between p-4 bg-slate-50 border border-slate-100 rounded-lg">
+<div class="flex items-center gap-3">
+<div class="size-10 flex items-center justify-center bg-primary text-white rounded-lg shadow-sm">
+<span class="material-symbols-outlined">calendar_today</span>
+</div>
+<div>
+<p class="text-[10px] font-bold text-slate-400 uppercase leading-none mb-1">Weekly</p>
+<p class="text-2xl font-black text-charcoal">$2,450.00</p>
+</div>
+</div>
+<div class="text-slate-400 text-xs font-black uppercase">Wk 42</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-span-12 xl:col-span-8 flex flex-col gap-6">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h2 class="text-3xl font-black tracking-tight text-charcoal">Driver Dashboard</h2>
+<p class="text-slate-500 flex items-center gap-2 mt-1 font-medium">
+<span class="material-symbols-outlined text-primary text-lg">location_on</span>
+                                Currently near Chicago, IL (I-94 W)
+                            </p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-5 py-2.5 bg-white border border-slate-200 rounded-lg text-sm font-bold text-slate-700 hover:bg-slate-50 transition-colors shadow-sm">
+<span class="material-symbols-outlined text-sm">edit_calendar</span> Edit Log
+                            </button>
+<button class="flex items-center gap-2 px-5 py-2.5 bg-primary text-white rounded-lg text-sm font-bold shadow-lg shadow-primary/25 hover:bg-blue-600 transition-colors">
+<span class="material-symbols-outlined text-sm">ios_share</span> Send ELD
+                            </button>
+</div>
+</div>
+<div class="bg-white rounded-xl border border-slate-100 shadow-card overflow-hidden">
+<div class="bg-primary/5 px-6 py-4 flex justify-between items-center border-b border-slate-100">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary font-bold">route</span>
+<span class="text-sm font-bold text-charcoal">Active Trip: <span class="text-primary font-black ml-1">#49202</span></span>
+</div>
+<div class="text-[10px] font-black text-danger bg-white px-2.5 py-1 rounded border border-danger/20 shadow-sm tracking-widest uppercase">
+                                Priority High
+                            </div>
+</div>
+<div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="space-y-6">
+<div class="relative pl-8 space-y-10">
+<div class="absolute left-[11px] top-2 bottom-2 w-0.5 bg-slate-100"></div>
+<div class="relative">
+<div class="absolute -left-[29px] size-4 rounded-full bg-primary border-4 border-white z-10 shadow-sm"></div>
+<p class="text-[10px] font-extrabold text-slate-400 uppercase leading-none mb-1">Pickup</p>
+<p class="font-bold text-lg text-charcoal">Chicago, IL</p>
+<p class="text-xs text-slate-500 font-medium">Consolidated Logistics Hub</p>
+</div>
+<div class="relative">
+<div class="absolute -left-[29px] size-4 rounded-full bg-slate-300 border-4 border-white z-10 shadow-sm"></div>
+<p class="text-[10px] font-extrabold text-slate-400 uppercase leading-none mb-1">Delivery</p>
+<p class="font-bold text-lg text-charcoal">Denver, CO</p>
+<p class="text-xs text-slate-500 font-medium">West-End Distribution Center</p>
+</div>
+</div>
+<div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+<div class="flex justify-between mb-2">
+<span class="text-xs font-bold text-slate-500">Trip Progress</span>
+<span class="text-xs font-black text-charcoal">640 / 1,090 miles</span>
+</div>
+<div class="w-full h-2.5 bg-slate-200 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[58%]"></div>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<div class="grid grid-cols-2 gap-4">
+<div class="p-4 bg-slate-50 rounded-xl border border-slate-100">
+<p class="text-[10px] font-extrabold text-slate-400 uppercase mb-1">ETA</p>
+<p class="text-xl font-black text-charcoal">04:30 PM</p>
+<p class="text-[11px] font-black text-success uppercase mt-1">On Schedule</p>
+</div>
+<div class="p-4 bg-slate-50 rounded-xl border border-slate-100">
+<p class="text-[10px] font-extrabold text-slate-400 uppercase mb-1">Remaining</p>
+<p class="text-xl font-black text-charcoal">450 mi</p>
+<p class="text-[11px] font-bold text-slate-400 mt-1">~7h 15m</p>
+</div>
+</div>
+<div class="flex-1 rounded-xl border border-slate-100 overflow-hidden relative group min-h-[140px]">
+<div class="absolute inset-0 bg-primary/5 group-hover:bg-transparent transition-colors z-10"></div>
+<img class="w-full h-full object-cover grayscale opacity-70" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCw-bADHfN9G1qOhpOMcHWwrXTIzBp3WP23CMtczfn3bsOosTunF0Zn0qQmZpagt4nNqpu2N-9d_eqcF1i5WPe69OWRuwsJv-ACcA7cSsRA2tdgLe0DIdgQ2sCHHWZFWVopgAwyYnlmfYj83S0w_piXPj6D-N45Ew2GUNgC6YdSGEWVaBKUg3dBqiM0gyoQglx569MgCxfOF-4RTqpJYG2QKtxKPRK5_DUtVN5-54oPZT811o4TOemWbrVWUirsi8V-Qe9AJpo2eBA"/>
+<div class="absolute bottom-2 right-2 z-20">
+<button class="bg-white p-2 rounded-lg shadow-lg text-primary border border-slate-100 hover:text-blue-700">
+<span class="material-symbols-outlined text-lg">open_in_full</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div>
+<h3 class="text-sm font-black uppercase tracking-wider text-slate-400 mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-warning fill-1">warning</span>
+                            Critical Alerts (3)
+                        </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="flex items-start gap-4 p-4 bg-white border border-danger/10 rounded-xl shadow-card">
+<div class="size-10 flex-shrink-0 flex items-center justify-center bg-danger text-white rounded-lg">
+<span class="material-symbols-outlined">schedule_send</span>
+</div>
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="text-[10px] font-black uppercase text-danger">Late Pickup</span>
+<span class="text-[10px] text-slate-400 font-bold px-1.5 py-0.5 rounded bg-slate-50">5m ago</span>
+</div>
+<p class="text-sm font-black text-charcoal mb-0.5">Load #49202 Delay Detected</p>
+<p class="text-xs text-slate-500 font-medium">Update ETA for West-End Center.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 bg-white border border-warning/20 rounded-xl shadow-card">
+<div class="size-10 flex-shrink-0 flex items-center justify-center bg-warning text-white rounded-lg">
+<span class="material-symbols-outlined">description</span>
+</div>
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="text-[10px] font-black uppercase text-warning">Compliance</span>
+<span class="text-[10px] text-slate-400 font-bold px-1.5 py-0.5 rounded bg-slate-50">Urgent</span>
+</div>
+<p class="text-sm font-black text-charcoal mb-0.5">Missing Fuel Receipt</p>
+<p class="text-xs text-slate-500 font-medium">Stop in Davenport needs verification.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-wrap gap-4 pt-2">
+<div class="flex-1 min-w-[140px] p-4 bg-white border border-slate-100 rounded-xl shadow-sm">
+<p class="text-[10px] font-extrabold text-slate-400 uppercase mb-2">Fuel Level</p>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-slate-400">local_gas_station</span>
+<span class="text-lg font-black text-charcoal">78%</span>
+</div>
+</div>
+<div class="flex-1 min-w-[140px] p-4 bg-white border border-slate-100 rounded-xl shadow-sm">
+<p class="text-[10px] font-extrabold text-slate-400 uppercase mb-2">Engine Health</p>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-success">check_circle</span>
+<span class="text-lg font-black text-charcoal">Optimal</span>
+</div>
+</div>
+<div class="flex-1 min-w-[140px] p-4 bg-white border border-slate-100 rounded-xl shadow-sm">
+<p class="text-[10px] font-extrabold text-slate-400 uppercase mb-2">Avg Speed</p>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-slate-400">speed</span>
+<span class="text-lg font-black text-charcoal">62 mph</span>
+</div>
+</div>
+<div class="flex-1 min-w-[140px] p-4 bg-white border border-slate-100 rounded-xl shadow-sm">
+<p class="text-[10px] font-extrabold text-slate-400 uppercase mb-2">Tire Pressure</p>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-slate-400">tire_repair</span>
+<span class="text-lg font-black text-charcoal">102 PSI</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
 
 </body></html>
